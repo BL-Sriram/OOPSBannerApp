@@ -1,54 +1,77 @@
 package com.cg;
 
 /**
- * OOPSBannerApp UC5 – Render OOPS as Banner using Inline Array Initialization
+ * OOPSBannerApp UC6 – OOPS Banner Application (Use Case 6)
  *
- * This use case improves UC4 by combining String array declaration and
- * initialization into a single statement using String.join(), making
- * the code more concise and readable while preserving modularity.
+ * This use case extends UC5 by implementing a modular approach
+ * to generate each letter's pattern through dedicated methods.
+ * This enhances code reusability and maintainability by separating
+ * pattern generation logic from the main display logic.
  *
  * @author Developer
- * @version 5.0
+ * @version 6.0
  */
 public class OOPSBannerApp {
+
+    // Method to generate the pattern for the letter 'O'
+    public static String[] getOPattern() {
+        return new String[] {
+                "   ***   ",
+                " **   ** ",
+                "**     **",
+                "**     **",
+                "**     **",
+                "**     **",
+                " **   ** ",
+                "   ***   "
+        };
+    }
+
+    // Method to generate the pattern for the letter 'P'
+    public static String[] getPPattern() {
+        return new String[] {
+                " ******  ",
+                " **    ** ",
+                " **     **",
+                " **    ** ",
+                " ******  ",
+                " **       ",
+                " **       ",
+                " **       "
+        };
+    }
+
+    // Method to generate the pattern for the letter 'S'
+    public static String[] getSPattern() {
+        return new String[] {
+                "   ***** ",
+                " **      ",
+                "**       ",
+                " **      ",
+                "   ***   ",
+                "      ** ",
+                "       **",
+                "  *****  "
+        };
+    }
 
     // Main method to run the banner display
     public static void main(String[] args) {
 
-        // Declare and initialize the banner lines in a single statement
-        String[] lines = {
+        // Declare String arrays to hold patterns for each letter
+        String[] oPattern = getOPattern();
+        String[] pPattern = getPPattern();
+        String[] sPattern = getSPattern();
 
-                String.join("",
-                        "   ***   ", "   ***   ", "  ******   ", "   *****  "),
-
-                String.join("",
-                        " **   ** ", " **   ** ", " **    **  ", " **       "),
-
-                String.join("",
-                        "**     **", "**     **", " **     ** ", "**        "),
-
-                String.join("",
-                        "**     **", "**     **", " **    **  ", " **       "),
-
-                String.join("",
-                        "**     **", "**     **", " ******    ", "   ***    "),
-
-                String.join("",
-                        "**     **", "**     **", " **         ", "      **  "),
-
-                String.join("",
-                        "**     **", "**     **", " **         ", "       ** "),
-
-                String.join("",
-                        " **   ** ", " **   ** ", " **         ", "      **  "),
-
-                String.join("",
-                        "   ***   ", "   ***   ", " **         ", "  *****   ")
-        };
-
-        // Print each line using a for-each loop
-        for (String line : lines) {
-            System.out.println(line);
+        // Use loop to assemble and print each line of the banner
+        // OOPS = O + O + P + S
+        for (int i = 0; i < oPattern.length; i++) {
+            System.out.println(
+                    oPattern[i] + " " +
+                            oPattern[i] + " " +
+                            pPattern[i] + " " +
+                            sPattern[i]
+            );
         }
     }
 }
